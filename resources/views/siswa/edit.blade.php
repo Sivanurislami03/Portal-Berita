@@ -16,20 +16,21 @@
 
                     You are logged in! --}}
 
-                    <form action="{{ route('siswa.store') }}" method="POST">
+                    <form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
                         @csrf
+                        @method("PUT")
                         <div class="row">
                             <div class="col-md-4">
                                 <label for="">Masukan Nama Siswa</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" name="nama" required>
+                                <input type="text" name="nama" value="{{$siswa->nama}}" required>
                             </div>
                             <div class="col-md-4">
                                 <label for="">Masukan Kelas</label>
                             </div>
                             <div class="col-md-8">
-                                <input type="text" name="kelas" required>
+                                <input type="text" name="kelas" value="{{$siswa->kelas}}" required>
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Simpan</button>

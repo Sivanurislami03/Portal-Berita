@@ -32,9 +32,14 @@
                                     <td> {{ $item->nama }} </td>
                                     <td> {{ $item->kelas }} </td>
                                     <td>
-                                        <a class="btn btn-info" href="{{ route('siswa.show', $item->id) }}">Lihat</a>
+                                        <form action="{{route('siswa.destroy', $item->id)}}" method="post">
+                                        @method("delete")
+                                        @csrf
+                                        <a class="btn btn-info" href="{{ route('siswa.show', $item->id) }}">Show</a>
                                         <a class="btn btn-warning" href="{{ route('siswa.edit', $item->id) }}">Edit</a>
-                                        <a class="btn btn-danger" href="{{ route('siswa.destroy', $item->id) }}">Hapus</a>
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
