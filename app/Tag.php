@@ -19,6 +19,7 @@ class Tag extends Model
     		'App\Artikel',
     	    'artikel_tag', 
     	    'tag_id', 
-    	    'artikel_id');
+			'artikel_id'
+		);
     }
 }
