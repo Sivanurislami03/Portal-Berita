@@ -50,7 +50,7 @@ Route::get('relasi-3', function () {
 	# Mencari dosen yang bernama Abdul mushafa
 	$dosen = Dosen::where('nama','=','Abdul Musthafa')->first();
 
-	#Menampilkan seluruh data mahasiswa dari dosen Abdul Musthafa
+	# Menampilkan seluruh data mahasiswa dari dosen Abdul Musthafa
 	foreach ($dosen->mahasiswa as $temp)
 	echo '<li> Nama : '. $temp->nama .
 	    '<strong>' . $temp->nim . '</strong></li>';
@@ -70,8 +70,10 @@ Route::get('relasi-5', function() {
 });
 
 // Siswa
-Route::resource('siswa', 'SiswaController');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('siswa', 'SiswaController');
+Route::get('tabungan/report', 'TabunganController@jumlah_tabungan');
+Route::resource('tabungan', 'TabunganController');

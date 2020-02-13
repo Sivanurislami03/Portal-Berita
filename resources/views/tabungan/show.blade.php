@@ -5,23 +5,26 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Show Siswa</div>
+                <div class="card-header">Show Tabungan Siswa</div>
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="">Nama Siswa</label>
+                            <label for="">Tabungan Siswa</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" value="{{$siswa->nama}}" name="nama" readonly>
+                            <select name="siswa_id" class="form-control" readonly>
+                                <option value="{{ $data->id }}"> 
+                                {{$data->siswa->nama}} - {{$data->siswa->kelas}}</option>
+                            </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="">Kelas</label>
+                            <label for="">Jumlah Uang</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" value="{{$siswa->kelas}}" name="kelas" readonly>
+                            <input type="number" class="form-control" value="{{ $data->jumlah_uang }}" name="jumlah_uang" readonly>
                         </div>
-                   </div>
+                    </div>
                 </div>
             </div>
         </div>

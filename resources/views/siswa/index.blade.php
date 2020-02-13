@@ -5,21 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Daftar Siswa</div>
-
-                <div class="card-body">
-                    {{-- @if (session('status'))
+            @if (session('message'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('message') }}
                         </div>
                     @endif
-
-                    You are logged in! --}}
-
-                    <a href="{{ route('siswa.create') }}" class="btn btn-primary">
-                    Tambah Siswa
+                <div class="card-header">Daftar Siswa
+                    <a href="{{ route('siswa.create') }}" class="btn btn-primary float-right">
+                        Tambah
                     </a>
-
+                </div>
+                <div class="card-body">
                     <table class="table">
                         <thead>
                             <th>Nama Siswa</th>
@@ -33,8 +29,8 @@
                                     <td> {{ $item->kelas }} </td>
                                     <td>
                                         <form action="{{route('siswa.destroy', $item->id)}}" method="post">
-                                        @method("delete")
                                         @csrf
+                                        @method("DELETE")
                                         <a class="btn btn-info" href="{{ route('siswa.show', $item->id) }}">Show</a>
                                         <a class="btn btn-warning" href="{{ route('siswa.edit', $item->id) }}">Edit</a>
                                         <button class="btn btn-danger" type="submit">Delete</button>
